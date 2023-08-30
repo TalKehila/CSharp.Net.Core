@@ -1,0 +1,15 @@
+﻿@using LessionOnePartTwo.Controllers
+@model List<Country>
+Here Will Be countries
+
+<h1>
+    I am header
+</h1>
+<ul>
+    @foreach (var country in Model)
+    {
+        <li>
+            @country.Name
+        </li>
+    }
+</ul>
