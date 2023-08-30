@@ -1,0 +1,52 @@
+﻿@model List<Country>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Displaying All Countries</title>
+	<style>
+
+		   .country-card {
+			border: 1px solid #233;
+			padding: 0px;
+			width: 300px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+
+<h1>
+	Displaying Restricted  Countries
+</h1>
+	@{
+		List<int> pages = new List<int>()
+	{
+	  1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25
+	}; 
+	}
+	@foreach (var item in pages)
+	{
+				<a style="display:inline-block; width:40px;" asp-controller="Countries"
+   asp-action="DisplayRestrictedCountries"
+   asp-route-pagenumber="@item">
+			@item
+				</a>   
+	}
+	<ul style="list-style-type: none; display: flex; flex-wrap: wrap;">
+		@foreach (var item in Model)
+		{
+
+						<li class="country-card" style="width:25%; padding: 10px;"> <!--   add a ul  flexbile -->
+						   <div style="display: flex; flex-direction: column; align-items: center;">  <!-- making div for photos and name of the flags-->
+								<img src="@item.Flags.Png" style="width: 100px; height: 70px;" />
+								<span>@item.Name.Common</span>
+
+							</div>
+						</li>      
+		}
+</ul>
+</body>
+</html>
